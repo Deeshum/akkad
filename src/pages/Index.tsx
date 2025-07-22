@@ -1,12 +1,49 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useRef } from 'react';
+import CustomCursor from '@/components/CustomCursor';
+import Preloader from '@/components/Preloader';
+import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
+import PortfolioSlideshow from '@/components/PortfolioSlideshow';
+import ContactForm from '@/components/ContactForm';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const portfolioRef = useRef<HTMLDivElement>(null);
+
+  const handlePreloaderComplete = () => {
+    setIsLoading(false);
+  };
+
+  const handleEnterClick = () => {
+    if (portfolioRef.current) {
+      portfolioRef.current.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  if (isLoading) {
+    return <Preloader onComplete={handlePreloaderComplete} />;
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background text-foreground">
+      <CustomCursor />
+      <Header />
+      
+      <main>
+        <HeroSection onEnterClick={handleEnterClick} />
+        
+        <div ref={portfolioRef}>
+          <PortfolioSlideshow />
+        </div>
+        
+        <ContactForm />
+      </main>
+      
+      <Footer />
     </div>
   );
 };
