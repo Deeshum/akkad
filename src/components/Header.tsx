@@ -8,7 +8,7 @@ const Header = () => {
       <div className="flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <div className="font-serif text-xl font-bold tracking-tight interactive">
-          STUDIO
+          DUNE
         </div>
 
         {/* Hamburger Menu */}
@@ -48,10 +48,10 @@ const Header = () => {
           
           <nav className="text-center">
             <a href="#work" className="block text-4xl font-serif mb-8 interactive hover:text-accent transition-colors">
-              Work
+              Projects
             </a>
             <a href="#about" className="block text-4xl font-serif mb-8 interactive hover:text-accent transition-colors">
-              About
+              Studio
             </a>
             <a href="#contact" className="block text-4xl font-serif mb-8 interactive hover:text-accent transition-colors">
               Contact

@@ -1,9 +1,9 @@
 const Footer = () => {
   const socialLinks = [
-    { name: 'Instagram', url: '#', handle: '@studio' },
-    { name: 'Twitter', url: '#', handle: '@studio' },
-    { name: 'Behance', url: '#', handle: 'studio' },
-    { name: 'Email', url: 'mailto:hello@studio.com', handle: 'hello@studio.com' },
+    { name: 'Instagram', url: '#', handle: '@dune.architects' },
+    { name: 'LinkedIn', url: '#', handle: 'dune-architects' },
+    { name: 'Behance', url: '#', handle: 'dune-architects' },
+    { name: 'Email', url: 'mailto:info@dunearchitects.ae', handle: 'info@dunearchitects.ae' },
   ];
 
   return (
@@ -13,11 +13,11 @@ const Footer = () => {
           {/* Studio Info */}
           <div className="mb-8 md:mb-0">
             <h3 className="font-serif text-2xl font-bold mb-2">
-              AVANT-GARDE STUDIO
+              DUNE ARCHITECTS
             </h3>
             <p className="text-muted-foreground max-w-md">
-              Creating bold, experimental experiences that push the boundaries 
-              of design and interaction.
+              Innovative architectural firm in Abu Dhabi creating sustainable, 
+              culturally-inspired designs that honor heritage while embracing the future.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border text-sm text-muted-foreground">
-          <p>© 2024 Avant-Garde Studio. All rights reserved.</p>
+          <p>© 2024 Dune Architects. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="interactive hover:text-accent transition-colors">
               Privacy

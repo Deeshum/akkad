@@ -83,10 +83,10 @@ const ContactForm = () => {
     <section className="py-20 px-6" id="contact">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-serif font-bold text-center mb-4">
-          Start a Project
+          Start Your Project
         </h2>
         <p className="text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-          Ready to push boundaries? Let's create something impossible together.
+          Ready to create architectural excellence? Let's design something extraordinary together.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
@@ -140,23 +140,23 @@ const ContactForm = () => {
             </div>
           </div>
 
-          <div>
-            <label htmlFor="project" className="block text-sm font-medium mb-2">
-              Project Type
-            </label>
-            <Input
-              id="project"
-              name="project"
-              value={formData.project}
-              onChange={handleChange}
-              placeholder="Brand Identity, Web Design, Installation..."
+            <div>
+              <label htmlFor="project" className="block text-sm font-medium mb-2">
+                Project Type
+              </label>
+              <Input
+                id="project"
+                name="project"
+                value={formData.project}
+                onChange={handleChange}
+                placeholder="Residential, Commercial, Cultural, Urban Planning..."
               className="bg-background"
             />
           </div>
 
           <div>
             <label htmlFor="message" className="block text-sm font-medium mb-2">
-              Tell us about your vision *
+              Tell us about your architectural vision *
             </label>
             <Textarea
               id="message"
@@ -166,7 +166,7 @@ const ContactForm = () => {
               rows={6}
               required
               className="bg-background"
-              placeholder="Describe your project, goals, and any specific requirements..."
+              placeholder="Describe your project scope, site requirements, sustainability goals, and design preferences..."
             />
           </div>
 

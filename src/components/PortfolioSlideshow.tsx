@@ -13,12 +13,12 @@ import portfolio06 from '@/assets/portfolio-06.jpg';
 gsap.registerPlugin(ScrollTrigger);
 
 const portfolioItems = [
-  { id: 1, title: 'Project 01', image: portfolio01, description: 'Experimental Workshop' },
-  { id: 2, title: 'Project 02', image: portfolio02, description: 'Digital Installation' },
-  { id: 3, title: 'Project 03', image: portfolio03, description: 'Brand Identity' },
-  { id: 4, title: 'Project 04', image: portfolio04, description: 'Motion Graphics' },
-  { id: 5, title: 'Project 05', image: portfolio05, description: 'Visual Identity' },
-  { id: 6, title: 'Project 06', image: portfolio06, description: 'Interactive Design' },
+  { id: 1, title: 'Al Sahra Tower', image: portfolio01, description: 'Mixed-Use Development' },
+  { id: 2, title: 'Heritage Cultural Center', image: portfolio02, description: 'Cultural Architecture' },
+  { id: 3, title: 'Eco Oasis Residences', image: portfolio03, description: 'Sustainable Housing' },
+  { id: 4, title: 'Desert Bloom Villas', image: portfolio04, description: 'Luxury Residential' },
+  { id: 5, title: 'Innovation Hub', image: portfolio05, description: 'Commercial Complex' },
+  { id: 6, title: 'Waterfront Promenade', image: portfolio06, description: 'Urban Planning' },
 ];
 
 const PortfolioSlideshow = () => {
