@@ -22,15 +22,17 @@ const HeroSection = ({ onEnterClick }: HeroSectionProps) => {
     <section className="min-h-screen flex flex-col items-center justify-center relative px-6">
       {/* Animated Studio Logo */}
       <div className={`mb-12 transition-all duration-1000 ${logoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
-        <div className="w-20 h-20 border-2 border-foreground flex items-center justify-center">
-          <span className="font-serif text-2xl font-bold">DA</span>
-        </div>
+        <img 
+          src="/lovable-uploads/35ae7eeb-a93a-45fb-b51f-5f1c2433c7e8.png" 
+          alt="Akkad Logo" 
+          className="h-16 object-contain"
+        />
       </div>
 
       {/* Main Headline */}
       <h1 className="text-6xl md:text-8xl lg:text-[110px] font-serif font-bold text-center leading-none mb-8 max-w-6xl">
         <SplitText 
-          text="REDEFINING DESERT ARCHITECTURE"
+          text="ARCHITECTURAL EXCELLENCE ACROSS CONTINENTS"
           delay={800}
           staggerDelay={30}
         />
@@ -39,8 +41,8 @@ const HeroSection = ({ onEnterClick }: HeroSectionProps) => {
       {/* Sub-headline */}
       <p className="text-lg md:text-xl opacity-0 animate-fade-in text-center max-w-2xl mb-16" 
          style={{ animationDelay: '1.6s', animationFillMode: 'forwards' }}>
-        Innovative architectural firm in Abu Dhabi creating sustainable, 
-        culturally-inspired designs that honor heritage while embracing the future.
+        Leading architectural consultancy bridging Abu Dhabi and Baghdad, 
+        creating innovative designs that honor regional heritage while embracing modern excellence.
       </p>
 
       {/* Enter Button */}

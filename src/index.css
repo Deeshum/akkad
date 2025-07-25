@@ -8,26 +8,26 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Avant-garde studio color system */
-    --background: 5 5% 5%; /* Jet Black #0D0D0D */
+    /* Akkad architectural consultants color system */
+    --background: 0 0% 13%; /* Dark Grey matching logo background */
     --foreground: 0 0% 100%; /* Pure White #FFFFFF */
 
-    --card: 5 5% 5%;
+    --card: 0 0% 13%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 5 5% 5%;
+    --popover: 0 0% 13%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 0 0% 100%;
-    --primary-foreground: 5 5% 5%;
+    --primary-foreground: 0 0% 13%;
 
-    --secondary: 5 5% 8%;
+    --secondary: 0 0% 16%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 5 5% 8%;
+    --muted: 0 0% 16%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 348 100% 50%; /* Neon Red #FF004D */
+    --accent: 14 100% 60%; /* Akkad Orange from logo */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,7 +35,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 348 100% 50%;
+    --ring: 14 100% 60%;
 
     --radius: 0.5rem;
 
@@ -58,25 +58,25 @@ All colors MUST be HSL.
 
   .dark {
     /* Dark mode uses same colors for consistency */
-    --background: 5 5% 5%;
+    --background: 0 0% 13%;
     --foreground: 0 0% 100%;
 
-    --card: 5 5% 5%;
+    --card: 0 0% 13%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 5 5% 5%;
+    --popover: 0 0% 13%;
     --popover-foreground: 0 0% 100%;
 
     --primary: 0 0% 100%;
-    --primary-foreground: 5 5% 5%;
+    --primary-foreground: 0 0% 13%;
 
-    --secondary: 5 5% 8%;
+    --secondary: 0 0% 16%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 5 5% 8%;
+    --muted: 0 0% 16%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 348 100% 50%;
+    --accent: 14 100% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -84,7 +84,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 348 100% 50%;
+    --ring: 14 100% 60%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
