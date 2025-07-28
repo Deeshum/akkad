@@ -38,6 +38,11 @@ All colors MUST be HSL.
     --ring: 14 100% 60%;
 
     --radius: 0.5rem;
+    
+    /* V4 Brand Colors */
+    --v4-terracotta: 14 78% 55%;    /* #E95F32 */
+    --v4-charcoal: 220 7% 16%;      /* #26282D */
+    --v4-white: 0 0% 100%;          /* #FFFFFF */
 
     --sidebar-background: 0 0% 98%;
 
