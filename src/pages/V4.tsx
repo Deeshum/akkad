@@ -1,15 +1,10 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { V4Sidebar } from '@/components/V4Sidebar';
-import P5V4Animation from '@/components/P5V4Animation';
 
 const V4 = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  console.log('V4 component rendering...');
   const portfolioRef = useRef<HTMLDivElement>(null);
-
-  const handlePreloaderComplete = () => {
-    setIsLoading(false);
-  };
 
   const handleScrollToProjects = () => {
     if (portfolioRef.current) {
@@ -20,15 +15,9 @@ const V4 = () => {
     }
   };
 
-  if (isLoading) {
-    return <P5V4Animation isPreloader={true} onPreloaderComplete={handlePreloaderComplete} />;
-  }
-
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-white">
-        {/* Background Animation */}
-        <P5V4Animation />
         
         {/* Sidebar */}
         <V4Sidebar />
