@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { V4Sidebar } from '@/components/V4Sidebar';
+import ArchitecturalScroll from '@/components/ArchitecturalScroll';
 
 const V4 = () => {
   console.log('V4 component rendering...');
@@ -65,6 +66,9 @@ const V4 = () => {
                 </div>
               </div>
             </section>
+
+            {/* Architectural Visions Horizontal Scroll */}
+            <ArchitecturalScroll />
 
             {/* Featured Projects Section */}
             <section ref={portfolioRef} className="py-24 px-8 bg-white/60 backdrop-blur-sm">
