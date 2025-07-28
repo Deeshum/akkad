@@ -1,11 +1,15 @@
-import { useRef } from 'react';
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { V4Sidebar } from '@/components/V4Sidebar';
+import { useState, useRef } from 'react';
 import ArchitecturalScroll from '@/components/ArchitecturalScroll';
+import HamburgerMenu from '@/components/HamburgerMenu';
+import P5V4Animation from '@/components/P5V4Animation';
 
 const V4 = () => {
-  console.log('V4 component rendering...');
+  const [isLoading, setIsLoading] = useState(true);
   const portfolioRef = useRef<HTMLDivElement>(null);
+
+  const handlePreloaderComplete = () => {
+    setIsLoading(false);
+  };
 
   const handleScrollToProjects = () => {
     if (portfolioRef.current) {
@@ -16,56 +20,56 @@ const V4 = () => {
     }
   };
 
-  return (
-    <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-white">
-        
-        {/* Sidebar */}
-        <V4Sidebar />
-        
-        {/* Main Content */}
-        <div className="flex-1 flex flex-col">
-          {/* Header with Sidebar Trigger */}
-          <header className="h-16 flex items-center justify-between px-8 bg-white/80 backdrop-blur-sm border-b border-[hsl(var(--v4-charcoal))]/10 relative z-10">
-            <SidebarTrigger className="text-[hsl(var(--v4-charcoal))] hover:text-[hsl(var(--v4-terracotta))] transition-colors" />
-            <div className="text-[hsl(var(--v4-charcoal))]/60 text-sm font-medium tracking-widest uppercase">
-              ABU DHABI — BAGHDAD
-            </div>
-          </header>
+  if (isLoading) {
+    return <P5V4Animation isPreloader={true} onPreloaderComplete={handlePreloaderComplete} />;
+  }
 
-          {/* Main Content Area */}
-          <main className="flex-1 relative z-10">
-            {/* Hero Section */}
-            <section className="min-h-screen flex items-center justify-center px-8">
-              <div className="max-w-6xl mx-auto text-center">
-                <div className="text-[hsl(var(--v4-charcoal))]/40 text-sm font-medium tracking-[0.3em] uppercase mb-6">
-                  ARCHITECTURAL CONSULTANTS
-                </div>
-                
-                <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-[hsl(var(--v4-charcoal))] mb-8 leading-none tracking-tight">
-                  AKKAD
-                  <span className="block text-[hsl(var(--v4-terracotta))] italic">STUDIO</span>
-                </h1>
-                
-                <p className="text-xl md:text-2xl text-[hsl(var(--v4-charcoal))]/70 mb-12 max-w-3xl mx-auto leading-relaxed">
-                  We create spaces that blend geometry, emotion, and cultural heritage across the Middle East. 
-                  Our experimental approach challenges conventional architecture.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                  <button 
-                    onClick={handleScrollToProjects}
-                    className="px-8 py-4 bg-[hsl(var(--v4-terracotta))] text-white font-semibold tracking-wide uppercase hover:bg-[hsl(var(--v4-terracotta))]/90 transition-all duration-300 transform hover:scale-105"
-                  >
-                    EXPLORE PROJECTS
-                  </button>
-                  
-                  <button className="px-8 py-4 border-2 border-[hsl(var(--v4-charcoal))] text-[hsl(var(--v4-charcoal))] font-semibold tracking-wide uppercase hover:bg-[hsl(var(--v4-charcoal))] hover:text-white transition-all duration-300">
-                    OUR PHILOSOPHY
-                  </button>
-                </div>
-              </div>
-            </section>
+  return (
+    <div className="min-h-screen w-full bg-white relative">
+      {/* Background Animation */}
+      <P5V4Animation />
+      
+      {/* Hamburger Menu */}
+      <HamburgerMenu />
+      
+      {/* Main Content */}
+      <main className="relative z-10">
+        {/* Hero Section */}
+        <section className="min-h-screen flex items-center justify-center px-8">
+          {/* Top Right Badge */}
+          <div className="absolute top-6 left-6 text-[hsl(var(--v4-charcoal))]/60 text-sm font-medium tracking-widest uppercase z-20">
+            ABU DHABI — BAGHDAD
+          </div>
+          
+          <div className="max-w-6xl mx-auto text-center">
+            <div className="text-[hsl(var(--v4-charcoal))]/40 text-sm font-medium tracking-[0.3em] uppercase mb-6">
+              ARCHITECTURAL CONSULTANTS
+            </div>
+            
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-[hsl(var(--v4-charcoal))] mb-8 leading-none tracking-tight">
+              AKKAD
+              <span className="block text-[hsl(var(--v4-terracotta))] italic">STUDIO</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-[hsl(var(--v4-charcoal))]/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+              We create spaces that blend geometry, emotion, and cultural heritage across the Middle East. 
+              Our experimental approach challenges conventional architecture.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <button 
+                onClick={handleScrollToProjects}
+                className="px-8 py-4 bg-[hsl(var(--v4-terracotta))] text-white font-semibold tracking-wide uppercase hover:bg-[hsl(var(--v4-terracotta))]/90 transition-all duration-300 transform hover:scale-105"
+              >
+                EXPLORE PROJECTS
+              </button>
+              
+              <button className="px-8 py-4 border-2 border-[hsl(var(--v4-charcoal))] text-[hsl(var(--v4-charcoal))] font-semibold tracking-wide uppercase hover:bg-[hsl(var(--v4-charcoal))] hover:text-white transition-all duration-300">
+                OUR PHILOSOPHY
+              </button>
+            </div>
+          </div>
+        </section>
 
             {/* Architectural Visions Horizontal Scroll */}
             <ArchitecturalScroll />
@@ -194,10 +198,8 @@ const V4 = () => {
                 </div>
               </div>
             </section>
-          </main>
-        </div>
-      </div>
-    </SidebarProvider>
+        </main>
+    </div>
   );
 };
 
