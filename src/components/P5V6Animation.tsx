@@ -34,15 +34,15 @@ const P5V6Animation = () => {
       };
 
       p.draw = () => {
-        p.background(38, 40, 45); // Charcoal Gray
+        p.background(245, 245, 245); // Light Gray
         
         p.rotateY(p.radians(angle));
         p.rotateX(p.radians(angle * 0.3));
 
         // Architectural grid (white lines)
         p.push();
-        p.stroke(255);
-        p.strokeWeight(0.5);
+        p.stroke(45, 45, 45); // Dark Gray
+        p.strokeWeight(0.8);
         for (let x = -500; x <= 500; x += 50) {
           for (let z = -500; z <= 500; z += 50) {
             p.line(x, 0, z, x, -200, z); // Vertical architectural lines
@@ -52,8 +52,8 @@ const P5V6Animation = () => {
 
         // Rotating skyline-like frames
         p.push();
-        p.stroke(255);
-        p.strokeWeight(1.2);
+        p.stroke(30, 30, 30); // Very Dark Gray
+        p.strokeWeight(1.5);
         p.noFill();
         for (let i = 0; i < 10; i++) {
           p.rotateY(p.radians(p.frameCount * 0.02 + i));

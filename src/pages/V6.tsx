@@ -6,7 +6,7 @@ const V6 = () => {
   const [currentFrame, setCurrentFrame] = useState(1);
 
   return (
-    <div className="min-h-screen bg-charcoal text-white relative overflow-hidden">
+    <div className={`min-h-screen ${currentFrame === 1 ? 'bg-white' : 'bg-charcoal'} text-white relative overflow-hidden`}>
       {/* Animation Backgrounds */}
       {currentFrame === 1 && <P5V6Animation />}
       {currentFrame === 2 && <P5V6Frame2 />}
@@ -18,7 +18,9 @@ const V6 = () => {
           className={`px-4 py-2 rounded-lg transition-all duration-300 ${
             currentFrame === 1 
               ? 'bg-terracotta text-white' 
-              : 'bg-white/20 text-white/70 hover:bg-white/30'
+              : currentFrame === 1 
+                ? 'bg-charcoal/20 text-charcoal/70 hover:bg-charcoal/30'
+                : 'bg-white/20 text-white/70 hover:bg-white/30'
           }`}
         >
           3D Architecture
@@ -28,7 +30,9 @@ const V6 = () => {
           className={`px-4 py-2 rounded-lg transition-all duration-300 ${
             currentFrame === 2 
               ? 'bg-terracotta text-white' 
-              : 'bg-white/20 text-white/70 hover:bg-white/30'
+              : currentFrame === 1 
+                ? 'bg-charcoal/20 text-charcoal/70 hover:bg-charcoal/30'
+                : 'bg-white/20 text-white/70 hover:bg-white/30'
           }`}
         >
           Geometric Sun
@@ -38,10 +42,10 @@ const V6 = () => {
       {/* Content Overlay */}
       <div className="relative z-10 flex items-center justify-center min-h-screen">
         <div className="text-center space-y-4 p-8">
-          <h1 className="text-4xl md:text-6xl font-light tracking-wider text-white/90">
+          <h1 className={`text-4xl md:text-6xl font-light tracking-wider ${currentFrame === 1 ? 'text-charcoal/90' : 'text-white/90'}`}>
             {currentFrame === 1 ? 'ARCHITECTURAL' : 'GEOMETRIC'}
           </h1>
-          <p className="text-xl md:text-2xl font-light text-white/70 tracking-wide">
+          <p className={`text-xl md:text-2xl font-light tracking-wide ${currentFrame === 1 ? 'text-charcoal/70' : 'text-white/70'}`}>
             {currentFrame === 1 ? 'Three-Dimensional Vision' : 'Interactive Solar Design'}
           </p>
         </div>
