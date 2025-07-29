@@ -2,9 +2,11 @@ import { useState, useRef } from 'react';
 import ArchitecturalScroll from '@/components/ArchitecturalScroll';
 import HamburgerMenu from '@/components/HamburgerMenu';
 import P5V4Animation from '@/components/P5V4Animation';
+import P5V6Animation from '@/components/P5V6Animation';
 
 const V4 = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [currentFrame, setCurrentFrame] = useState(1);
   const portfolioRef = useRef<HTMLDivElement>(null);
 
   const handlePreloaderComplete = () => {
@@ -27,7 +29,32 @@ const V4 = () => {
   return (
     <div className="min-h-screen w-full bg-white relative">
       {/* Background Animation */}
-      <P5V4Animation />
+      {currentFrame === 1 && <P5V6Animation />}
+      {currentFrame === 2 && <P5V4Animation />}
+      
+      {/* Frame Switcher */}
+      <div className="fixed top-4 right-20 z-30 flex gap-2">
+        <button
+          onClick={() => setCurrentFrame(1)}
+          className={`px-3 py-1 text-xs rounded transition-all duration-300 ${
+            currentFrame === 1 
+              ? 'bg-[hsl(var(--v4-terracotta))] text-white' 
+              : 'bg-[hsl(var(--v4-charcoal))]/20 text-[hsl(var(--v4-charcoal))]/70 hover:bg-[hsl(var(--v4-charcoal))]/30'
+          }`}
+        >
+          3D ARCH
+        </button>
+        <button
+          onClick={() => setCurrentFrame(2)}
+          className={`px-3 py-1 text-xs rounded transition-all duration-300 ${
+            currentFrame === 2 
+              ? 'bg-[hsl(var(--v4-terracotta))] text-white' 
+              : 'bg-[hsl(var(--v4-charcoal))]/20 text-[hsl(var(--v4-charcoal))]/70 hover:bg-[hsl(var(--v4-charcoal))]/30'
+          }`}
+        >
+          ORIGINAL
+        </button>
+      </div>
       
       {/* Hamburger Menu */}
       <HamburgerMenu />
@@ -46,12 +73,12 @@ const V4 = () => {
               ARCHITECTURAL CONSULTANTS
             </div>
             
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-[hsl(var(--v4-charcoal))] mb-8 leading-none tracking-tight">
+            <h1 className={`text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-none tracking-tight ${currentFrame === 1 ? 'text-[#E95F32]' : 'text-[hsl(var(--v4-charcoal))]'}`}>
               AKKAD
-              <span className="block text-[hsl(var(--v4-terracotta))] italic">STUDIO</span>
+              <span className={`block italic ${currentFrame === 1 ? 'text-[#E95F32]/80' : 'text-[hsl(var(--v4-terracotta))]'}`}>STUDIO</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-[hsl(var(--v4-charcoal))]/70 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className={`text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed ${currentFrame === 1 ? 'text-[#E95F32]/70' : 'text-[hsl(var(--v4-charcoal))]/70'}`}>
               We create spaces that blend geometry, emotion, and cultural heritage across the Middle East. 
               Our experimental approach challenges conventional architecture.
             </p>
