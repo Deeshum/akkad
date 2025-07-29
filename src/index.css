@@ -59,6 +59,10 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Luxury About Page Colors */
+    --luxury-gold: 45 90 60;
+    --luxury-charcoal: 220 5 15;
   }
 
   .dark {
@@ -237,6 +241,83 @@ All colors MUST be HSL.
   .portfolio-slide {
     scroll-snap-align: start;
     scroll-snap-stop: always;
+  }
+
+  /* Luxury About Page Animations */
+  @keyframes drawLine {
+    from { stroke-dashoffset: 1000; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotateY(0deg); }
+    50% { transform: translateY(-20px) rotateY(180deg); }
+  }
+
+  @keyframes goldPulse {
+    0%, 100% { box-shadow: 0 0 5px hsl(var(--luxury-gold)); }
+    50% { box-shadow: 0 0 30px hsl(var(--luxury-gold)), 0 0 60px hsl(var(--luxury-gold)); }
+  }
+
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes morphBuilding {
+    0% { transform: scale(0.8) rotateY(0deg); opacity: 0.3; }
+    50% { transform: scale(1.1) rotateY(180deg); opacity: 0.7; }
+    100% { transform: scale(1) rotateY(360deg); opacity: 1; }
+  }
+
+  .line-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 3s ease-out forwards;
+  }
+
+  .shimmer-particle {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  .float-geometry {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .gold-pulse {
+    animation: goldPulse 2s ease-in-out infinite;
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 1s ease-out forwards;
+  }
+
+  .morph-building {
+    animation: morphBuilding 4s ease-in-out infinite;
+  }
+
+  .luxury-card {
+    transition: all 0.4s ease;
+    transform-style: preserve-3d;
+  }
+
+  .luxury-card:hover {
+    transform: rotateY(5deg) rotateX(5deg) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   }
 
   /* Reduced motion preferences */
