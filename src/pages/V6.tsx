@@ -42,10 +42,10 @@ const V6 = () => {
       {/* Content Overlay */}
       <div className="relative z-10 flex items-center justify-center min-h-screen">
         <div className="text-center space-y-4 p-8">
-          <h1 className={`text-4xl md:text-6xl font-light tracking-wider ${currentFrame === 1 ? 'text-charcoal/90' : 'text-white/90'}`}>
+          <h1 className={`text-4xl md:text-6xl font-light tracking-wider ${currentFrame === 1 ? 'text-[#E95F32]' : 'text-white/90'}`}>
             {currentFrame === 1 ? 'ARCHITECTURAL' : 'GEOMETRIC'}
           </h1>
-          <p className={`text-xl md:text-2xl font-light tracking-wide ${currentFrame === 1 ? 'text-charcoal/70' : 'text-white/70'}`}>
+          <p className={`text-xl md:text-2xl font-light tracking-wide ${currentFrame === 1 ? 'text-[#E95F32]/80' : 'text-white/70'}`}>
             {currentFrame === 1 ? 'Three-Dimensional Vision' : 'Interactive Solar Design'}
           </p>
         </div>
