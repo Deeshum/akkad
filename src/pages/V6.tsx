@@ -171,19 +171,22 @@ const V6 = () => {
               <h4 className="text-lg font-medium text-[#E95F32]">Our Offices</h4>
               <div className="space-y-4">
                 <div>
-                  <h5 className="font-medium text-white">Abu Dhabi</h5>
+                  <h5 className="font-medium text-white">Abu Dhabi Head Office</h5>
                   <p className="text-gray-300 text-sm">
-                    Al Mariah Island<br/>
-                    Abu Dhabi, UAE<br/>
-                    +971 2 123 4567
+                    1603 Office, C88 Commercial Building,<br/>
+                    Baghdad Street, Abu Dhabi,<br/>
+                    United Arab Emirates<br/>
+                    +971 2 562 0979<br/>
+                    info@akkadconsultants.com
                   </p>
                 </div>
                 <div>
-                  <h5 className="font-medium text-white">Baghdad</h5>
+                  <h5 className="font-medium text-white">Baghdad Office</h5>
                   <p className="text-gray-300 text-sm">
-                    Al-Karada District<br/>
-                    Baghdad, Iraq<br/>
-                    +964 1 987 6543
+                    Office 101 A, AI Arasat St,<br/>
+                    Baghdad Iraq<br/>
+                    +964 773 2008881<br/>
+                    info@akkadconsultants.com
                   </p>
                 </div>
               </div>
