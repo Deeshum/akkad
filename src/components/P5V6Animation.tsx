@@ -6,6 +6,8 @@ const P5V6Animation = () => {
   const p5Instance = useRef<p5 | null>(null);
 
   useEffect(() => {
+    if (!canvasRef.current) return;
+
     const sketch = (p: p5) => {
       let particles: Array<{
         x: number;
@@ -88,13 +90,20 @@ const P5V6Animation = () => {
       };
     };
 
-    if (canvasRef.current) {
+    try {
       p5Instance.current = new p5(sketch, canvasRef.current);
+    } catch (error) {
+      console.error('Error initializing p5:', error);
     }
 
     return () => {
       if (p5Instance.current) {
-        p5Instance.current.remove();
+        try {
+          p5Instance.current.remove();
+          p5Instance.current = null;
+        } catch (error) {
+          console.error('Error removing p5 instance:', error);
+        }
       }
     };
   }, []);
