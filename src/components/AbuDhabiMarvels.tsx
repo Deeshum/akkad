@@ -1,4 +1,9 @@
 import { useEffect, useRef } from 'react';
+import sheikhZayedMosque from '@/assets/sheikh-zayed-mosque.jpg';
+import louvreAbuDhabi from '@/assets/louvre-abu-dhabi.jpg';
+import emiratesPalace from '@/assets/emirates-palace.jpg';
+import etihadTowers from '@/assets/etihad-towers.jpg';
+import aldarHeadquarters from '@/assets/aldar-headquarters.jpg';
 
 const AbuDhabiMarvels = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -9,35 +14,40 @@ const AbuDhabiMarvels = () => {
       description: "Architectural masterpiece blending Islamic design with modern engineering",
       year: "2007",
       architect: "Yousef Abdelky",
-      feature: "World's largest hand-knotted carpet"
+      feature: "World's largest hand-knotted carpet",
+      image: sheikhZayedMosque
     },
     {
       title: "Louvre Abu Dhabi",
       description: "Floating dome creating rain of light through geometric perforations",
       year: "2017", 
       architect: "Jean Nouvel",
-      feature: "557-meter diameter dome"
+      feature: "557-meter diameter dome",
+      image: louvreAbuDhabi
     },
     {
       title: "Emirates Palace",
       description: "Palatial luxury hotel with golden domes and Arabian grandeur",
       year: "2005",
       architect: "John Elliott RIBA",
-      feature: "114 domes covered in gold"
+      feature: "114 domes covered in gold",
+      image: emiratesPalace
     },
     {
       title: "Etihad Towers",
       description: "Five towers of varying heights creating dynamic skyline composition",
       year: "2011",
       architect: "DBI Design",
-      feature: "300-meter tallest tower"
+      feature: "300-meter tallest tower",
+      image: etihadTowers
     },
     {
       title: "Aldar Headquarters",
       description: "Circular skyscraper - world's first circular building of its kind",
       year: "2010",
       architect: "MZ Architects",
-      feature: "Completely circular design"
+      feature: "Completely circular design",
+      image: aldarHeadquarters
     }
   ];
 
@@ -89,8 +99,13 @@ const AbuDhabiMarvels = () => {
             className="marvel-card flex-shrink-0 w-80 md:w-96 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 opacity-0"
             style={{ scrollSnapAlign: 'center' }}
           >
-            {/* Image Placeholder with Gradient */}
-            <div className="h-64 bg-gradient-to-br from-[#E95F32]/20 to-[#E95F32]/40 rounded-t-lg relative overflow-hidden">
+            {/* Actual Image */}
+            <div className="h-64 relative overflow-hidden rounded-t-lg">
+              <img 
+                src={marvel.image} 
+                alt={marvel.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-medium text-[#E95F32]">
                 {marvel.year}
