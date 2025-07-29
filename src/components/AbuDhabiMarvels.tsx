@@ -1,9 +1,4 @@
 import { useEffect, useRef } from 'react';
-import sheikhZayedMosque from '@/assets/sheikh-zayed-mosque.jpg';
-import louvreAbuDhabi from '@/assets/louvre-abu-dhabi.jpg';
-import emiratesPalace from '@/assets/emirates-palace.jpg';
-import etihadTowers from '@/assets/etihad-towers.jpg';
-import aldarHeadquarters from '@/assets/aldar-headquarters.jpg';
 
 const AbuDhabiMarvels = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -15,7 +10,7 @@ const AbuDhabiMarvels = () => {
       year: "2007",
       architect: "Yousef Abdelky",
       feature: "World's largest hand-knotted carpet",
-      image: sheikhZayedMosque
+      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?w=800&h=600&fit=crop"
     },
     {
       title: "Louvre Abu Dhabi",
@@ -23,7 +18,7 @@ const AbuDhabiMarvels = () => {
       year: "2017", 
       architect: "Jean Nouvel",
       feature: "557-meter diameter dome",
-      image: louvreAbuDhabi
+      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=600&fit=crop"
     },
     {
       title: "Emirates Palace",
@@ -31,7 +26,7 @@ const AbuDhabiMarvels = () => {
       year: "2005",
       architect: "John Elliott RIBA",
       feature: "114 domes covered in gold",
-      image: emiratesPalace
+      image: "https://images.unsplash.com/photo-1496307653780-4833?w=800&h=600&fit=crop"
     },
     {
       title: "Etihad Towers",
@@ -39,7 +34,7 @@ const AbuDhabiMarvels = () => {
       year: "2011",
       architect: "DBI Design",
       feature: "300-meter tallest tower",
-      image: etihadTowers
+      image: "https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=800&h=600&fit=crop"
     },
     {
       title: "Aldar Headquarters",
@@ -47,26 +42,17 @@ const AbuDhabiMarvels = () => {
       year: "2010",
       architect: "MZ Architects",
       feature: "Completely circular design",
-      image: aldarHeadquarters
+      image: "https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a?w=800&h=600&fit=crop"
     }
   ];
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
     const cards = document.querySelectorAll('.marvel-card');
-    cards.forEach((card) => observer.observe(card));
-
-    return () => observer.disconnect();
+    cards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('animate-fade-in');
+      }, index * 200);
+    });
   }, []);
 
   return (
@@ -96,15 +82,19 @@ const AbuDhabiMarvels = () => {
         {marvels.map((marvel, index) => (
           <div
             key={index}
-            className="marvel-card flex-shrink-0 w-80 md:w-96 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 opacity-0"
+            className="marvel-card flex-shrink-0 w-80 md:w-96 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 opacity-100"
             style={{ scrollSnapAlign: 'center' }}
           >
-            {/* Actual Image */}
+            {/* Image */}
             <div className="h-64 relative overflow-hidden rounded-t-lg">
               <img 
                 src={marvel.image} 
                 alt={marvel.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                onError={(e) => {
+                  console.log(`Failed to load image for ${marvel.title}`);
+                  e.currentTarget.style.backgroundColor = '#f3f4f6';
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-medium text-[#E95F32]">
@@ -138,7 +128,7 @@ const AbuDhabiMarvels = () => {
               </div>
 
               {/* Hover Animation Element */}
-              <div className="mt-4 h-1 w-0 bg-gradient-to-r from-[#E95F32] to-[#E95F32]/40 transition-all duration-500 group-hover:w-full"></div>
+              <div className="mt-4 h-1 w-0 bg-gradient-to-r from-[#E95F32] to-[#E95F32]/40 transition-all duration-500 hover:w-full"></div>
             </div>
           </div>
         ))}
