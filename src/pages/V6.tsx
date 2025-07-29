@@ -3,6 +3,7 @@ import PortfolioSlideshow from '@/components/PortfolioSlideshow';
 import WhatWeDoAnimation from '@/components/WhatWeDoAnimation';
 import HowWeDoAnimation from '@/components/HowWeDoAnimation';
 import WhoWeAreAnimation from '@/components/WhoWeAreAnimation';
+import Footer from '@/components/Footer';
 
 const V6 = () => {
   return (
@@ -151,6 +152,9 @@ const V6 = () => {
           </p>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
