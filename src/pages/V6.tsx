@@ -25,10 +25,10 @@ const V6 = () => {
       </div>
 
       {/* Horizontal Scrolling Sections Container */}
-      <div className="h-screen overflow-x-auto overflow-y-hidden">
-        <div className="flex h-full w-[300%]">
+      <div className="h-screen overflow-x-auto overflow-y-hidden scroll-smooth">
+        <div className="flex h-full" style={{ width: '300vw' }}>
           {/* WHO WE ARE Section */}
-          <div className="w-1/3 h-full bg-[#26282D] text-white relative flex items-center justify-center p-8">
+          <div className="h-full bg-[#26282D] text-white relative flex items-center justify-center p-8" style={{ width: '100vw' }}>
             <WhoWeAreAnimation />
             <div className="max-w-4xl mx-auto space-y-8 relative z-10">
               <h2 className="text-4xl md:text-5xl font-light tracking-wider text-[#E95F32] text-center mb-12">
@@ -59,7 +59,7 @@ const V6 = () => {
           </div>
 
           {/* WHAT WE DO Section */}
-          <div className="w-1/3 h-full bg-white text-[#26282D] relative flex items-center justify-center p-8">
+          <div className="h-full bg-white text-[#26282D] relative flex items-center justify-center p-8" style={{ width: '100vw' }}>
             <WhatWeDoAnimation />
             <div className="max-w-4xl mx-auto space-y-12 relative z-10">
               <h2 className="text-4xl md:text-5xl font-light tracking-wider text-[#E95F32] text-center mb-12">
@@ -102,7 +102,7 @@ const V6 = () => {
           </div>
 
           {/* HOW WE DO IT Section */}
-          <div className="w-1/3 h-full bg-[#26282D] text-white relative flex items-center justify-center p-8">
+          <div className="h-full bg-[#26282D] text-white relative flex items-center justify-center p-8" style={{ width: '100vw' }}>
             <HowWeDoAnimation />
             <div className="max-w-4xl mx-auto space-y-12 relative z-10">
               <h2 className="text-4xl md:text-5xl font-light tracking-wider text-[#E95F32] text-center mb-12">
