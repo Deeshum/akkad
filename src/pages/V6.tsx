@@ -1,52 +1,19 @@
-import { useState } from 'react';
 import P5V6Animation from '@/components/P5V6Animation';
-import P5V6Frame2 from '@/components/P5V6Frame2';
 
 const V6 = () => {
-  const [currentFrame, setCurrentFrame] = useState(1);
-
   return (
-    <div className={`min-h-screen ${currentFrame === 1 ? 'bg-white' : 'bg-charcoal'} text-white relative overflow-hidden`}>
-      {/* Animation Backgrounds */}
-      {currentFrame === 1 && <P5V6Animation />}
-      {currentFrame === 2 && <P5V6Frame2 />}
-      
-      {/* Frame Switcher */}
-      <div className="fixed top-4 right-4 z-20 flex gap-2">
-        <button
-          onClick={() => setCurrentFrame(1)}
-          className={`px-4 py-2 rounded-lg transition-all duration-300 ${
-            currentFrame === 1 
-              ? 'bg-terracotta text-white' 
-              : currentFrame === 1 
-                ? 'bg-charcoal/20 text-charcoal/70 hover:bg-charcoal/30'
-                : 'bg-white/20 text-white/70 hover:bg-white/30'
-          }`}
-        >
-          3D Architecture
-        </button>
-        <button
-          onClick={() => setCurrentFrame(2)}
-          className={`px-4 py-2 rounded-lg transition-all duration-300 ${
-            currentFrame === 2 
-              ? 'bg-terracotta text-white' 
-              : currentFrame === 1 
-                ? 'bg-charcoal/20 text-charcoal/70 hover:bg-charcoal/30'
-                : 'bg-white/20 text-white/70 hover:bg-white/30'
-          }`}
-        >
-          Geometric Sun
-        </button>
-      </div>
+    <div className="min-h-screen bg-white text-white relative overflow-hidden">
+      {/* 3D Architecture Animation Background */}
+      <P5V6Animation />
       
       {/* Content Overlay */}
       <div className="relative z-10 flex items-center justify-center min-h-screen">
         <div className="text-center space-y-4 p-8">
-          <h1 className={`text-4xl md:text-6xl font-light tracking-wider ${currentFrame === 1 ? 'text-[#E95F32]' : 'text-white/90'}`}>
-            {currentFrame === 1 ? 'ARCHITECTURAL' : 'GEOMETRIC'}
+          <h1 className="text-4xl md:text-6xl font-light tracking-wider text-[#E95F32]">
+            ARCHITECTURAL
           </h1>
-          <p className={`text-xl md:text-2xl font-light tracking-wide ${currentFrame === 1 ? 'text-[#E95F32]/80' : 'text-white/70'}`}>
-            {currentFrame === 1 ? 'Three-Dimensional Vision' : 'Interactive Solar Design'}
+          <p className="text-xl md:text-2xl font-light tracking-wide text-[#E95F32]/80">
+            Three-Dimensional Vision
           </p>
         </div>
       </div>
