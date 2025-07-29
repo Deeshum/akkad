@@ -29,7 +29,6 @@ const V6 = () => {
         <div className="flex h-full" style={{ width: '300vw' }}>
           {/* WHO WE ARE Section */}
           <div className="w-screen h-full bg-[#26282D] text-white relative flex items-center justify-center p-8">
-            <WhoWeAreAnimation />
             
             {/* Scroll Indicator Arrows */}
             <div className="absolute right-8 top-1/2 -translate-y-1/2 z-20 space-y-4">
