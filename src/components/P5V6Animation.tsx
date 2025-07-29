@@ -7,83 +7,80 @@ const P5V6Animation = () => {
 
   useEffect(() => {
     const sketch = (p: p5) => {
-      let dots: Array<{
+      let particles: Array<{
         x: number;
         y: number;
+        z: number;
         size: number;
         speed: number;
       }> = [];
-      let rotationAngle = 0;
+      let angle = 0;
 
       p.setup = () => {
-        p.createCanvas(p.windowWidth, p.windowHeight);
-        p.angleMode(p.DEGREES);
-        p.textAlign(p.CENTER, p.CENTER);
+        p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
+        p.colorMode(p.RGB);
         p.noStroke();
 
-        // Floating white city-light dots
-        for (let i = 0; i < 80; i++) {
-          dots.push({
-            x: p.random(p.width),
-            y: p.random(p.height),
-            size: p.random(2, 5),
-            speed: p.random(0.2, 0.6)
+        // Create floating particles for architectural ambiance
+        for (let i = 0; i < 300; i++) {
+          particles.push({
+            x: p.random(-1000, 1000),
+            y: p.random(-600, 600),
+            z: p.random(-1000, 1000),
+            size: p.random(2, 8),
+            speed: p.random(0.5, 2)
           });
         }
       };
 
       p.draw = () => {
-        p.background(38, 40, 45); // Charcoal Gray
+        p.background(245, 245, 245); // Light Gray
+        
+        p.rotateY(p.radians(angle));
+        p.rotateX(p.radians(angle * 0.3));
 
-        // Floating white dots (stars/city lights)
-        p.fill(255);
-        for (let d of dots) {
-          p.circle(d.x, d.y, d.size);
-          d.y += d.speed;
-          if (d.y > p.height) {
-            d.y = 0;
-            d.x = p.random(p.width);
+        // Architectural grid (white lines)
+        p.push();
+        p.stroke(45, 45, 45); // Dark Gray
+        p.strokeWeight(0.8);
+        for (let x = -500; x <= 500; x += 50) {
+          for (let z = -500; z <= 500; z += 50) {
+            p.line(x, 0, z, x, -200, z); // Vertical architectural lines
+          }
+        }
+        p.pop();
+
+        // Rotating skyline-like frames
+        p.push();
+        p.stroke(30, 30, 30); // Very Dark Gray
+        p.strokeWeight(1.5);
+        p.noFill();
+        for (let i = 0; i < 10; i++) {
+          p.rotateY(p.radians(p.frameCount * 0.02 + i));
+          p.box(400 - i * 30, 200 + i * 20, 400 - i * 30);
+        }
+        p.pop();
+
+        // Floating particles (Terracotta Orange)
+        p.noStroke();
+        for (let particle of particles) {
+          p.fill(233, 95, 50); // Terracotta Orange
+          p.push();
+          p.translate(particle.x, particle.y, particle.z);
+          p.sphere(particle.size);
+          p.pop();
+
+          // Move particles forward
+          particle.z += particle.speed;
+          if (particle.z > 500) {
+            particle.z = -1000;
+            particle.x = p.random(-1000, 1000);
+            particle.y = p.random(-600, 600);
           }
         }
 
-        // Move origin to center for the geometric sun/moon animation
-        p.translate(p.width / 2, p.height / 2);
-
-        // Rotate whole geometry
-        rotationAngle += 0.2;
-        p.rotate(rotationAngle);
-
-        // Radiating Terracotta Orange lines
-        p.stroke(233, 95, 50); // Terracotta Orange
-        p.strokeWeight(2);
-        for (let i = 0; i < 36; i++) {
-          let angle = i * 10;
-          let x = p.cos(angle) * 180;
-          let y = p.sin(angle) * 180;
-          p.line(0, 0, x, y);
-        }
-
-        // Inner White Circle (modern city core)
-        p.noStroke();
-        p.fill(255);
-        p.circle(0, 0, 70);
-
-        // Orbiting Terracotta Circle (symbolic desert sun)
-        p.fill(233, 95, 50);
-        let orbitX = p.cos(p.frameCount * 2) * 220;
-        let orbitY = p.sin(p.frameCount * 2) * 220;
-        p.circle(orbitX, orbitY, 40);
-
-        // --------- TEXT CONTENT INTEGRATION ---------
-        p.rotate(-rotationAngle); // Counter-rotate text to keep it upright
-
-        p.fill(255); // White for main heading
-        p.textSize(48);
-        p.text("AKKAD DESIGN", 0, -40);
-
-        p.fill(233, 95, 50); // Terracotta Orange for tagline
-        p.textSize(24);
-        p.text("Value in Vision. Designing Abu Dhabi's Skyline", 0, 20);
+        // Subtle rotation for camera
+        angle += 0.2;
       };
 
       p.windowResized = () => {
