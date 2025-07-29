@@ -196,17 +196,14 @@ const V6 = () => {
             <div className="space-y-6">
               <h4 className="text-lg font-medium text-[#E95F32]">Connect</h4>
               <div className="space-y-3">
-                <a href="mailto:info@akkad.design" className="block text-gray-300 hover:text-[#E95F32] transition-colors">
-                  info@akkad.design
-                </a>
-                <a href="https://instagram.com/akkad.design" className="block text-gray-300 hover:text-[#E95F32] transition-colors">
+                <a href="https://www.instagram.com/akkadconsultants/" className="block text-gray-300 hover:text-[#E95F32] transition-colors" target="_blank" rel="noopener noreferrer">
                   Instagram
                 </a>
-                <a href="https://linkedin.com/company/akkad-design" className="block text-gray-300 hover:text-[#E95F32] transition-colors">
-                  LinkedIn
+                <a href="https://www.facebook.com/profile.php?id=100086450161108" className="block text-gray-300 hover:text-[#E95F32] transition-colors" target="_blank" rel="noopener noreferrer">
+                  Facebook
                 </a>
-                <a href="https://behance.net/akkad" className="block text-gray-300 hover:text-[#E95F32] transition-colors">
-                  Behance
+                <a href="https://www.linkedin.com/company/akkad-consultants/" className="block text-gray-300 hover:text-[#E95F32] transition-colors" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
                 </a>
               </div>
             </div>
