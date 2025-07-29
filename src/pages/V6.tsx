@@ -151,6 +151,72 @@ const V6 = () => {
           </p>
         </div>
       </div>
+
+      {/* Footer Section */}
+      <footer className="bg-[#26282D] text-white py-16 px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* Company Info */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-light tracking-wider text-[#E95F32]">AKKAD</h3>
+              <p className="text-gray-300 leading-relaxed">
+                Design-led architecture firm creating modern, high-performance spaces that balance beauty, functionality, and strategic value.
+              </p>
+            </div>
+
+            {/* Offices */}
+            <div className="space-y-6">
+              <h4 className="text-lg font-medium text-[#E95F32]">Our Offices</h4>
+              <div className="space-y-4">
+                <div>
+                  <h5 className="font-medium text-white">Abu Dhabi</h5>
+                  <p className="text-gray-300 text-sm">
+                    Al Mariah Island<br/>
+                    Abu Dhabi, UAE<br/>
+                    +971 2 123 4567
+                  </p>
+                </div>
+                <div>
+                  <h5 className="font-medium text-white">Baghdad</h5>
+                  <p className="text-gray-300 text-sm">
+                    Al-Karada District<br/>
+                    Baghdad, Iraq<br/>
+                    +964 1 987 6543
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Connect */}
+            <div className="space-y-6">
+              <h4 className="text-lg font-medium text-[#E95F32]">Connect</h4>
+              <div className="space-y-3">
+                <a href="mailto:info@akkad.design" className="block text-gray-300 hover:text-[#E95F32] transition-colors">
+                  info@akkad.design
+                </a>
+                <a href="https://instagram.com/akkad.design" className="block text-gray-300 hover:text-[#E95F32] transition-colors">
+                  Instagram
+                </a>
+                <a href="https://linkedin.com/company/akkad-design" className="block text-gray-300 hover:text-[#E95F32] transition-colors">
+                  LinkedIn
+                </a>
+                <a href="https://behance.net/akkad" className="block text-gray-300 hover:text-[#E95F32] transition-colors">
+                  Behance
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="border-t border-gray-700 mt-12 pt-8 text-center">
+            <p className="text-gray-400 text-sm">
+              © 2024 Akkad Architecture. All rights reserved. | 
+              <a href="#" className="hover:text-[#E95F32] transition-colors ml-2">Privacy</a> | 
+              <a href="#" className="hover:text-[#E95F32] transition-colors ml-2">Terms</a>
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
