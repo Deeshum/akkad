@@ -1,4 +1,5 @@
 import P5V6Animation from '@/components/P5V6Animation';
+import AbuDhabiMarvels from '@/components/AbuDhabiMarvels';
 
 const V6 = () => {
   return (
@@ -17,6 +18,9 @@ const V6 = () => {
           </p>
         </div>
       </div>
+
+      {/* Second Scroll Content - Abu Dhabi Marvels */}
+      <AbuDhabiMarvels />
     </div>
   );
 };
