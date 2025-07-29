@@ -320,6 +320,18 @@ All colors MUST be HSL.
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   }
 
+  /* V5 Premium Animations */
+  .transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Hardware acceleration for smooth animations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
   /* Reduced motion preferences */
   @media (prefers-reduced-motion: reduce) {
     .split-char,
