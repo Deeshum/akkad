@@ -1,6 +1,7 @@
 import P5V6Animation from '@/components/P5V6Animation';
 import PortfolioSlideshow from '@/components/PortfolioSlideshow';
 import WhatWeDoAnimation from '@/components/WhatWeDoAnimation';
+import HowWeDoAnimation from '@/components/HowWeDoAnimation';
 import WhoWeAreAnimation from '@/components/WhoWeAreAnimation';
 
 const V6 = () => {
@@ -97,6 +98,7 @@ const V6 = () => {
 
       {/* HOW WE DO IT Section */}
       <div className="min-h-screen bg-[#26282D] text-white relative flex items-center justify-center p-8">
+        <HowWeDoAnimation />
         <div className="max-w-4xl mx-auto space-y-12">
           <h2 className="text-4xl md:text-5xl font-light tracking-wider text-[#E95F32] text-center mb-12">
             HOW WE DO IT
