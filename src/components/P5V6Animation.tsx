@@ -111,7 +111,7 @@ const P5V6Animation = () => {
   return (
     <div 
       ref={canvasRef} 
-      className="fixed inset-0 w-full h-full"
+      className="absolute inset-0 w-full h-full"
       style={{ zIndex: 0 }}
     />
   );
