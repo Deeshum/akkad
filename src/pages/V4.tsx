@@ -3,10 +3,11 @@ import ArchitecturalScroll from '@/components/ArchitecturalScroll';
 import HamburgerMenu from '@/components/HamburgerMenu';
 import P5V4Animation from '@/components/P5V4Animation';
 import P5V6Animation from '@/components/P5V6Animation';
+import P5V4Frame4 from '@/components/P5V4Frame4';
 
 const V4 = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [currentFrame, setCurrentFrame] = useState(1);
+  const [currentFrame, setCurrentFrame] = useState(4);
   const portfolioRef = useRef<HTMLDivElement>(null);
 
   const handlePreloaderComplete = () => {
@@ -31,71 +32,16 @@ const V4 = () => {
       {/* Background Animation */}
       {currentFrame === 1 && <P5V6Animation />}
       {currentFrame === 2 && <P5V4Animation />}
-      
-      {/* Frame Switcher */}
-      <div className="fixed top-4 right-20 z-30 flex gap-2">
-        <button
-          onClick={() => setCurrentFrame(1)}
-          className={`px-3 py-1 text-xs rounded transition-all duration-300 ${
-            currentFrame === 1 
-              ? 'bg-[hsl(var(--v4-terracotta))] text-white' 
-              : 'bg-[hsl(var(--v4-charcoal))]/20 text-[hsl(var(--v4-charcoal))]/70 hover:bg-[hsl(var(--v4-charcoal))]/30'
-          }`}
-        >
-          3D ARCH
-        </button>
-        <button
-          onClick={() => setCurrentFrame(2)}
-          className={`px-3 py-1 text-xs rounded transition-all duration-300 ${
-            currentFrame === 2 
-              ? 'bg-[hsl(var(--v4-terracotta))] text-white' 
-              : 'bg-[hsl(var(--v4-charcoal))]/20 text-[hsl(var(--v4-charcoal))]/70 hover:bg-[hsl(var(--v4-charcoal))]/30'
-          }`}
-        >
-          ORIGINAL
-        </button>
-      </div>
+      {currentFrame === 4 && <P5V4Frame4 />}
       
       {/* Hamburger Menu */}
       <HamburgerMenu />
       
       {/* Main Content */}
       <main className="relative z-10">
-        {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center px-8">
-          {/* Top Right Badge */}
-          <div className="absolute top-6 left-6 text-[hsl(var(--v4-charcoal))]/60 text-sm font-medium tracking-widest uppercase z-20">
-            ABU DHABI — BAGHDAD
-          </div>
-          
-          <div className="max-w-6xl mx-auto text-center">
-            <div className="text-[hsl(var(--v4-charcoal))]/40 text-sm font-medium tracking-[0.3em] uppercase mb-6">
-              ARCHITECTURAL CONSULTANTS
-            </div>
-            
-            <h1 className={`text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-none tracking-tight ${currentFrame === 1 ? 'text-[#E95F32]' : 'text-[hsl(var(--v4-charcoal))]'}`}>
-              AKKAD
-              <span className={`block italic ${currentFrame === 1 ? 'text-[#E95F32]/80' : 'text-[hsl(var(--v4-terracotta))]'}`}>STUDIO</span>
-            </h1>
-            
-            <p className={`text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed ${currentFrame === 1 ? 'text-[#E95F32]/70' : 'text-[hsl(var(--v4-charcoal))]/70'}`}>
-              We create spaces that blend geometry, emotion, and cultural heritage across the Middle East. 
-              Our experimental approach challenges conventional architecture.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button 
-                onClick={handleScrollToProjects}
-                className="px-8 py-4 bg-[hsl(var(--v4-terracotta))] text-white font-semibold tracking-wide uppercase hover:bg-[hsl(var(--v4-terracotta))]/90 transition-all duration-300 transform hover:scale-105"
-              >
-                EXPLORE PROJECTS
-              </button>
-              
-              <button className="px-8 py-4 border-2 border-[hsl(var(--v4-charcoal))] text-[hsl(var(--v4-charcoal))] font-semibold tracking-wide uppercase hover:bg-[hsl(var(--v4-charcoal))] hover:text-white transition-all duration-300">
-                OUR PHILOSOPHY
-              </button>
-            </div>
-          </div>
+        {/* Hero Section - Animation Only */}
+        <section className="min-h-screen flex items-center justify-center">
+          {/* Content handled by P5.js animation */}
         </section>
 
             {/* Architectural Visions Horizontal Scroll */}
