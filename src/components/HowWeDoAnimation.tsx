@@ -1,155 +1,86 @@
 import { useEffect, useRef } from 'react';
-import p5 from 'p5';
 
 const HowWeDoAnimation = () => {
-  const canvasRef = useRef<HTMLDivElement>(null);
-  const p5Instance = useRef<p5 | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!canvasRef.current) return;
+    if (!containerRef.current) return;
 
-    const sketch = (p: p5) => {
-      let rectangles: Array<{
-        size: number;
-        maxSize: number;
-        opacity: number;
-        growing: boolean;
-        cornerDots: Array<{ x: number; y: number; opacity: number; phase: number }>;
-      }> = [];
-      let particles: Array<{
-        x: number;
-        y: number;
-        vx: number;
-        vy: number;
-        size: number;
-        opacity: number;
-      }> = [];
+    const container = containerRef.current;
+    container.innerHTML = '';
 
-      p.setup = () => {
-        p.createCanvas(p.windowWidth, p.windowHeight);
-        p.colorMode(p.RGB);
-        p.rectMode(p.CENTER);
+    // Create concentric rectangles
+    for (let i = 0; i < 4; i++) {
+      const rect = document.createElement('div');
+      const size = 100 + i * 60;
+      
+      rect.className = 'concentric-rect';
+      rect.style.cssText = `
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: transparent;
+        transform: translate(-50%, -50%);
+        animation: expandRect 4s ease-out infinite;
+        animation-delay: ${i * 0.5}s;
+      `;
+      rect.style.setProperty('--target-size', `${size}px`);
+      container.appendChild(rect);
 
-        // Create concentric rectangles
-        for (let i = 0; i < 5; i++) {
-          let maxSize = 100 + i * 80;
-          rectangles.push({
-            size: 0,
-            maxSize: maxSize,
-            opacity: 255,
-            growing: true,
-            cornerDots: []
-          });
-        }
+      // Add corner dots that appear when rectangle is fully expanded
+      setTimeout(() => {
+        const corners = [
+          { x: `calc(50% - ${size/2}px)`, y: `calc(50% - ${size/2}px)` },
+          { x: `calc(50% + ${size/2}px)`, y: `calc(50% - ${size/2}px)` },
+          { x: `calc(50% + ${size/2}px)`, y: `calc(50% + ${size/2}px)` },
+          { x: `calc(50% - ${size/2}px)`, y: `calc(50% + ${size/2}px)` }
+        ];
 
-        // Create diagonal drifting particles
-        for (let i = 0; i < 30; i++) {
-          particles.push({
-            x: p.random(p.width),
-            y: p.random(p.height),
-            vx: p.random(-0.5, 0.5),
-            vy: p.random(-0.5, 0.5),
-            size: p.random(1, 3),
-            opacity: p.random(20, 60)
-          });
-        }
-      };
-
-      p.draw = () => {
-        p.clear(); // Transparent background
-
-        let centerX = p.width / 2;
-        let centerY = p.height / 2;
-
-        // Draw concentric rectangles
-        for (let i = 0; i < rectangles.length; i++) {
-          let rect = rectangles[i];
-          
-          // Grow rectangles with delay
-          if (rect.growing && p.frameCount > i * 30) {
-            if (rect.size < rect.maxSize) {
-              rect.size += 1.5;
-            } else {
-              // Start fading
-              rect.opacity -= 2;
-              if (rect.opacity <= 0) {
-                rect.size = 0;
-                rect.opacity = 255;
-              }
-            }
-          }
-
-          // Draw rectangle outline
-          p.stroke(255, 255, 255, rect.opacity * 0.6);
-          p.strokeWeight(1);
-          p.noFill();
-          p.rect(centerX, centerY, rect.size, rect.size);
-
-          // Add corner dots when rectangle reaches full size
-          if (rect.size >= rect.maxSize - 10) {
-            let half = rect.size / 2;
-            let corners = [
-              { x: centerX - half, y: centerY - half },
-              { x: centerX + half, y: centerY - half },
-              { x: centerX + half, y: centerY + half },
-              { x: centerX - half, y: centerY + half }
-            ];
-
-            for (let corner of corners) {
-              let pulsePhase = p.frameCount * 0.1 + i;
-              let dotOpacity = p.map(p.sin(pulsePhase), -1, 1, 50, 200);
-              p.fill(233, 95, 50, dotOpacity);
-              p.noStroke();
-              p.circle(corner.x, corner.y, 6);
-            }
-          }
-        }
-
-        // Draw drifting particles
-        for (let particle of particles) {
-          p.fill(255, 255, 255, particle.opacity);
-          p.noStroke();
-          p.circle(particle.x, particle.y, particle.size);
-
-          // Move particles diagonally
-          particle.x += particle.vx;
-          particle.y += particle.vy;
-
-          // Wrap around screen
-          if (particle.x < 0) particle.x = p.width;
-          if (particle.x > p.width) particle.x = 0;
-          if (particle.y < 0) particle.y = p.height;
-          if (particle.y > p.height) particle.y = 0;
-        }
-      };
-
-      p.windowResized = () => {
-        p.resizeCanvas(p.windowWidth, p.windowHeight);
-      };
-    };
-
-    try {
-      p5Instance.current = new p5(sketch, canvasRef.current);
-    } catch (error) {
-      console.error('Error initializing HowWeDoAnimation:', error);
+        corners.forEach((corner, index) => {
+          const dot = document.createElement('div');
+          dot.style.cssText = `
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(233, 95, 50, 0.8);
+            border-radius: 50%;
+            left: ${corner.x};
+            top: ${corner.y};
+            transform: translate(-50%, -50%);
+            animation: pulseDot 2s ease-in-out infinite;
+            animation-delay: ${index * 0.2}s;
+          `;
+          container.appendChild(dot);
+        });
+      }, (i * 0.5 + 2) * 1000);
     }
 
-    return () => {
-      if (p5Instance.current) {
-        try {
-          p5Instance.current.remove();
-          p5Instance.current = null;
-        } catch (error) {
-          console.error('Error removing HowWeDoAnimation instance:', error);
-        }
-      }
-    };
+    // Add diagonal drifting particles
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      particle.style.cssText = `
+        position: absolute;
+        width: ${Math.random() * 2 + 1}px;
+        height: ${Math.random() * 2 + 1}px;
+        background: rgba(255, 255, 255, ${Math.random() * 0.4 + 0.2});
+        border-radius: 50%;
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation: driftDiagonal ${Math.random() * 15 + 10}s linear infinite;
+        animation-delay: ${Math.random() * 5}s;
+      `;
+      container.appendChild(particle);
+    }
+
   }, []);
 
   return (
     <div 
-      ref={canvasRef} 
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      ref={containerRef} 
+      className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
       style={{ zIndex: 1 }}
     />
   );
