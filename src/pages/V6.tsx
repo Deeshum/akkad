@@ -25,8 +25,8 @@ const V6 = () => {
       </div>
 
       {/* Horizontal Scrolling Sections Container */}
-      <div className="h-screen overflow-x-scroll overflow-y-hidden relative">
-        <div className="flex h-full" style={{ width: '300vw' }}>
+      <div className="h-screen overflow-x-auto overflow-y-hidden scroll-smooth">
+        <div className="flex h-full w-[300vw]">
           {/* WHO WE ARE Section */}
           <div className="w-screen h-full bg-[#26282D] text-white relative flex items-center justify-center p-8">
             
