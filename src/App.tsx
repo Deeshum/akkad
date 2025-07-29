@@ -8,6 +8,7 @@ import Lite from "./pages/Lite";
 import V3 from "./pages/V3";
 import V4 from "./pages/V4";
 import V5 from "./pages/V5";
+import V6 from "./pages/V6";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/v3" element={<V3 />} />
           <Route path="/v4" element={<V4 />} />
           <Route path="/v5" element={<V5 />} />
+          <Route path="/v6" element={<V6 />} />
           <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
