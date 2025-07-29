@@ -25,11 +25,24 @@ const V6 = () => {
       </div>
 
       {/* Horizontal Scrolling Sections Container */}
-      <div className="h-screen overflow-x-auto overflow-y-hidden">
-        <div className="flex h-full min-w-max">
+      <div className="h-screen overflow-x-scroll overflow-y-hidden relative">
+        <div className="flex h-full" style={{ width: '300vw' }}>
           {/* WHO WE ARE Section */}
-          <div className="w-screen h-full bg-[#26282D] text-white relative flex items-center justify-center p-8 flex-shrink-0">
+          <div className="w-screen h-full bg-[#26282D] text-white relative flex items-center justify-center p-8">
             <WhoWeAreAnimation />
+            
+            {/* Scroll Indicator Arrows */}
+            <div className="absolute right-8 top-1/2 -translate-y-1/2 z-20 space-y-4">
+              <div className="flex flex-col items-center animate-bounce">
+                <div className="w-1 h-8 bg-[#E95F32] rounded mb-2"></div>
+                <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[12px] border-l-transparent border-r-transparent border-t-[#E95F32] rotate-90"></div>
+                <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[12px] border-l-transparent border-r-transparent border-t-[#E95F32] rotate-90 -mt-1"></div>
+              </div>
+              <div className="text-[#E95F32] text-sm font-light tracking-wider rotate-90 origin-center mt-4">
+                SCROLL
+              </div>
+            </div>
+            
             <div className="max-w-4xl mx-auto space-y-8 relative z-10">
               <h2 className="text-4xl md:text-5xl font-light tracking-wider text-[#E95F32] text-center mb-12">
                 WHO WE ARE
@@ -59,7 +72,7 @@ const V6 = () => {
           </div>
 
           {/* WHAT WE DO Section */}
-          <div className="w-screen h-full bg-white text-[#26282D] relative flex items-center justify-center p-8 flex-shrink-0">
+          <div className="w-screen h-full bg-white text-[#26282D] relative flex items-center justify-center p-8">
             <WhatWeDoAnimation />
             <div className="max-w-4xl mx-auto space-y-12 relative z-10">
               <h2 className="text-4xl md:text-5xl font-light tracking-wider text-[#E95F32] text-center mb-12">
@@ -102,7 +115,7 @@ const V6 = () => {
           </div>
 
           {/* HOW WE DO IT Section */}
-          <div className="w-screen h-full bg-[#26282D] text-white relative flex items-center justify-center p-8 flex-shrink-0">
+          <div className="w-screen h-full bg-[#26282D] text-white relative flex items-center justify-center p-8">
             <HowWeDoAnimation />
             <div className="max-w-4xl mx-auto space-y-12 relative z-10">
               <h2 className="text-4xl md:text-5xl font-light tracking-wider text-[#E95F32] text-center mb-12">
